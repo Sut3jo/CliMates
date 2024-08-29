@@ -1,0 +1,130 @@
+﻿body {
+    background-image: url(../Assets/DonationRequestBackground.png);
+    font-family: "Inter",sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.content1 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container1 {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    padding: 1rem 40px;
+    gap: 80px;
+    box-shadow: 2px 10px 10px rgba(0, 0, 0, 0.5);
+    border-radius:15px;
+}
+
+.split{
+    display:flex;
+    margin-bottom:1rem;
+}
+
+.title {
+    text-align: center;
+    color: #48773E;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.left {
+    width:55%;
+}
+
+.right{
+    padding:0 1rem;
+    width:45%;
+}
+
+.text {
+    width: 90%;
+    padding: 7px;
+    border-radius:5px;
+    font-size: 1rem;
+    color: grey;
+    border:none;
+    outline:none;
+}
+
+.text::placeholder {
+    color: #B4C2C5;
+}
+.textcheck {
+    width: 60%;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+}
+.textcheck::placeholder {
+    color: #B4C2C5;
+}
+.inputlabel{
+    width:100%;
+    margin:8px 0;
+    font-size:16px;
+    font-weight:600;
+}
+
+.choice .textbox {
+    border: none;
+    background-color: rgb(220,220,220,0.5);
+    border-radius: 5px;
+    width: 250px;
+    padding: 10px 10px;
+}
+.textthumb {
+    width: 40%;
+    padding: 7px;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: grey;
+    border: none;
+    outline: none;
+}
+
+.textthumb::placeholder {
+        color: #B4C2C5;
+ }
+.submit{
+    display:flex;
+    justify-content:center;
+}
+
+.Button {
+    width: 250px;
+    height: 40px;
+    border-radius:15px;
+    border:none;
+    color:white;
+}
+
+.desc{
+    margin-bottom:2rem;
+}
+.desc p {
+    font-weight: bold;
+    color: #153E35;
+    font-size:12px;
+    height:0.1rem;
+    margin-bottom:1rem;
+}
+
+.desctext::placeholder {
+    color: #B4C2C5;
+}
+
+.agree{
+    display:flex;
+    align-items:center;
+}

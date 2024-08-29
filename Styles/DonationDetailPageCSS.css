@@ -1,0 +1,219 @@
+﻿body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    position: relative;
+    margin-top: -95px;
+    background: url(../Assets/bannerdetail.png);
+    height: 13vh;
+}
+
+.title{
+    display:flex;
+    padding: 2% 7.5% 0% 7.5%;
+    align-items:center;
+
+}
+.content {
+    display: flex;
+    padding: 0px 7.5% 0px 7.5%;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.content-img img{
+    width:720px;
+    height:405px;
+}
+
+.donate {
+    box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    width: 525px;
+    padding: 1%;
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.donate .head{
+    display: flex;
+    align-items: center;
+}
+
+svg{
+    width: 50px !important;
+    height: 50px !important;
+}
+
+
+.head p {
+    margin: 0px;
+    font-size: 16px;
+}
+
+.donate-money {
+    font-size: 16;
+    color: #7E7E7E;
+    height:3rem;
+    display:flex;
+    align-items:center;
+}
+.donate-money span {
+    color: #48773E;
+    font-weight:600;
+    font-size:32px;
+}
+
+.donate-money p{
+    margin: 0;
+}
+
+.donate-desc{
+    font-size:16px;
+    height:2rem;
+    display:flex;
+    align-items:center;
+}
+
+.donate-desc span {
+    color: #FF543E;
+    font-weight:600;
+}
+.bar{
+    width:100%;
+    height:0.9rem;
+    background-color:rgb(128, 128, 128 , 0.2);
+    border-radius:10px;
+}
+
+.bar2 {
+    height: 100%;
+    width: 87.98%;
+    border-radius: 10px;
+    background-color: #48773E;
+}
+
+.Buttonmoney {
+    border: 4px solid #48773E;
+    background-color: white;
+    width: 155px;
+    height: 44px;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    color: #48773E;
+}
+
+.Textmoney {
+    border: 4px solid #48773E;
+    background-color: white;
+    width: 310px;
+    height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #48773E;
+}
+
+.Textmoney::placeholder {
+    text-align: center;
+    color: #48773E;
+}
+
+.button{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 0.2rem 0.7rem;
+    justify-content: center;
+    width:100%;
+}
+
+.description {
+    padding: 0% 7.5%;
+}
+
+.give{
+    text-align: center;
+}
+
+.GiveNow {
+    width: 98%;
+    height: 44px;
+    color:white;
+    border-radius:15px;
+    background-color: #153E35;
+    border:none;
+    cursor: pointer;
+}
+
+.support{
+    text-align: center;
+}
+
+.SupportThis {
+    width: 98%;
+    height: 44px;
+    color: white;
+    border-radius: 15px;
+    background-color: #FF543E;
+    border: none;
+    cursor: pointer;
+}
+
+.report {
+    padding: 0% 7.5%;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #FF543E;
+    font-weight:500;
+    margin-bottom:1rem;
+}
+
+.report-logo{
+    width:40px;
+    height:40px;
+}
+
+.content2 {
+    background-color: rgb(72, 119, 62,60%);
+    height: 250px;
+    padding: 2% 7.5%;
+}
+
+.content2-title{
+    color:white;
+    font-size:24px;
+    font-weight:600;
+}
+.content2-box{
+    display:flex;
+    justify-content:space-between;
+}
+
+.content2-content{
+    display:flex;
+    width:25%;
+    align-items:center;
+}
+
+.content2-content img{
+    height:70px;
+    width:70px;
+}
+
+.content2-text{
+    color:white;
+    width:20rem;
+}
+
+.content2-text h3{
+    height:0.6rem;
+    font-size:20px;
+}

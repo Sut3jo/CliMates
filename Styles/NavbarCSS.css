@@ -1,0 +1,276 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+header {
+    background-color: transparent !important;
+    position: sticky;
+    top: 0%;
+    z-index: 10;
+    transition: background-color 0.3s ease-in-out;
+}
+
+header.scrolled {
+    background-color: rgba(255, 255, 255) !important;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.nav-container {
+    width: 95%;
+    margin-inline: auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container{
+    width: 95%;
+    margin-inline: auto;
+    padding: 20px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.climates a{
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: white !important;
+    text-align: center;
+}
+
+.climates a.scrolled {
+    color: #153E35 !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.menu li {
+    display: block;
+    height: 100%;
+    position: relative;
+    transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.menu li:after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    display: block;
+    transition: all 0.3s ease;
+    bottom: -15%;
+}
+
+ul li:hover::after {
+    width: 100%;
+    height: 3px;
+    background-color: white !important;
+}
+
+ul.scrolled li:hover::after {
+    background-color: #153E35 !important;
+}
+
+.menu li a {
+    color: white !important;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menu.scrolled li a {
+    color: #153E35 !important;
+}
+
+.logreg{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.LoginBtn {
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid white;
+    cursor: pointer;
+    padding: 10px 0px;
+    transition: transform .1s;
+}
+
+.LoginBtn:hover{
+    transform: scale(1.1);
+}
+
+.LoginBtn a {
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.LoginBtn.scrolled {
+    border: 1px solid #153E35;
+}
+
+.LoginBtn.scrolled a {
+    color: #153E35;
+}
+
+
+.RegisterBtn {
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px 0px;
+    transition: transform .1s;
+}
+
+.RegisterBtn:hover {
+    transform: scale(1.1)
+}
+
+.RegisterBtn a {
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.RegisterBtn.scrolled a {
+    color: #153E35;
+}
+
+.userInfo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.userInfo .userProfiles {
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.userInfo li {
+    transition: transform .2s;
+}
+
+.userInfo li:hover{
+    transform: scale(1.1);
+}
+
+.userInfo .userProfiles.scrolled {
+    color: #153E35;
+    border: 1px solid #153E35;
+}
+
+.userInfo .ButtonLogout {
+    padding: 10px 15px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    background-color: red;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+ }
+
+footer {
+    background-color: black;
+    color: white;
+    font-family: "Inter", sans-serif;
+    height: fit-content;
+}
+
+footer .container{
+    align-items: flex-start;
+    padding: 40px 0;
+}
+
+footer h3{
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+}
+
+footer p {
+    margin: 0;
+    width: fit-content;
+}
+
+.contactus{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.company{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.company a {
+    color: white;
+    font-size: 14px;
+    width: fit-content;
+}
+
+.findus{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    align-self: center;
+}
+
+.findus .sosmedimg{
+    display: flex;
+    gap: 20px;
+}
+
+.barcode {
+    display: flex;
+    align-self: center;
+}
+
+.barcode img{
+    width: 200px;
+}
+
+footer p{
+    font-size: 14px;
+}
+
+footer img {
+    filter: brightness(0) invert(1);
+}

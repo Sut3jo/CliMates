@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+    <EntitySetMapping Name="MsUsers">
+      <EntityTypeMapping TypeName="DatabaseModel.MsUser">
+        <MappingFragment StoreEntitySet="MsUser">
+          <ScalarProperty Name="userKTP" ColumnName="userKTP" />
+          <ScalarProperty Name="verifStatus" ColumnName="verifStatus" />
+          <ScalarProperty Name="userRole" ColumnName="userRole" />
+          <ScalarProperty Name="userAddress" ColumnName="userAddress" />
+          <ScalarProperty Name="userDOB" ColumnName="userDOB" />
+          <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MsParticipants">
+      <EntityTypeMapping TypeName="DatabaseModel.MsParticipant">
+        <MappingFragment StoreEntitySet="MsParticipants">
+          <ScalarProperty Name="activityID" ColumnName="activityID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MsActivities">
+      <EntityTypeMapping TypeName="DatabaseModel.MsActivity">
+        <MappingFragment StoreEntitySet="MsActivity">
+          <ScalarProperty Name="activityEndRegistration" ColumnName="activityEndRegistration" />
+          <ScalarProperty Name="activityStartRegistration" ColumnName="activityStartRegistration" />
+          <ScalarProperty Name="activityCreator" ColumnName="activityCreator" />
+          <ScalarProperty Name="activityStatus" ColumnName="activityStatus" />
+          <ScalarProperty Name="activityImage" ColumnName="activityImage" />
+          <ScalarProperty Name="activityRequirements" ColumnName="activityRequirements" />
+          <ScalarProperty Name="activityTime" ColumnName="activityTime" />
+          <ScalarProperty Name="activityCurrentParticipants" ColumnName="activityCurrentParticipants" />
+          <ScalarProperty Name="activityCapacity" ColumnName="activityCapacity" />
+          <ScalarProperty Name="activityDate" ColumnName="activityDate" />
+          <ScalarProperty Name="activityLocation" ColumnName="activityLocation" />
+          <ScalarProperty Name="activityDescription" ColumnName="activityDescription" />
+          <ScalarProperty Name="activityTitle" ColumnName="activityTitle" />
+          <ScalarProperty Name="activityID" ColumnName="activityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MsArticles">
+      <EntityTypeMapping TypeName="DatabaseModel.MsArticle">
+        <MappingFragment StoreEntitySet="MsArticle">
+          <ScalarProperty Name="articleImage" ColumnName="articleImage" />
+          <ScalarProperty Name="articleContent" ColumnName="articleContent" />
+          <ScalarProperty Name="articleSubTitle" ColumnName="articleSubTitle" />
+          <ScalarProperty Name="articleTime" ColumnName="articleTime" />
+          <ScalarProperty Name="articleDate" ColumnName="articleDate" />
+          <ScalarProperty Name="articleAuthor" ColumnName="articleAuthor" />
+          <ScalarProperty Name="articleTitle" ColumnName="articleTitle" />
+          <ScalarProperty Name="articleID" ColumnName="articleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

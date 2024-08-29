@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MsActivity">
+          <Key>
+            <PropertyRef Name="activityID" />
+          </Key>
+          <Property Name="activityID" Type="int" Nullable="false" />
+          <Property Name="activityTitle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="activityDescription" Type="varchar(max)" Nullable="false" />
+          <Property Name="activityLocation" Type="varchar(max)" Nullable="false" />
+          <Property Name="activityDate" Type="date" Nullable="false" />
+          <Property Name="activityCapacity" Type="int" Nullable="false" />
+          <Property Name="activityCurrentParticipants" Type="int" Nullable="false" />
+          <Property Name="activityTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="activityRequirements" Type="varchar(max)" Nullable="false" />
+          <Property Name="activityImage" Type="varbinary(max)" />
+          <Property Name="activityStatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="activityCreator" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="activityStartRegistration" Type="date" Nullable="false" />
+          <Property Name="activityEndRegistration" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MsArticle">
+          <Key>
+            <PropertyRef Name="articleID" />
+          </Key>
+          <Property Name="articleID" Type="int" Nullable="false" />
+          <Property Name="articleTitle" Type="varchar(max)" Nullable="false" />
+          <Property Name="articleAuthor" Type="varchar(max)" Nullable="false" />
+          <Property Name="articleDate" Type="date" Nullable="false" />
+          <Property Name="articleTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="articleSubTitle" Type="varchar(max)" Nullable="false" />
+          <Property Name="articleContent" Type="varchar(max)" Nullable="false" />
+          <Property Name="articleImage" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="MsParticipants">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="activityID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="activityID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MsUser">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="userEmail" Type="varchar" MaxLength="50" />
+          <Property Name="userPassword" Type="varchar" MaxLength="50" />
+          <Property Name="userDOB" Type="date" />
+          <Property Name="userAddress" Type="varchar" MaxLength="50" />
+          <Property Name="userRole" Type="varchar" MaxLength="15" />
+          <Property Name="verifStatus" Type="varchar" MaxLength="50" />
+          <Property Name="userKTP" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_MsParticipants_MsActivity">
+          <End Role="MsActivity" Type="Self.MsActivity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MsParticipants" Type="Self.MsParticipants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsActivity">
+              <PropertyRef Name="activityID" />
+            </Principal>
+            <Dependent Role="MsParticipants">
+              <PropertyRef Name="activityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseModelStoreContainer">
+          <EntitySet Name="MsActivity" EntityType="Self.MsActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MsArticle" EntityType="Self.MsArticle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MsParticipants" EntityType="Self.MsParticipants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MsUser" EntityType="Self.MsUser" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_MsParticipants_MsActivity" Association="Self.FK_MsParticipants_MsActivity">
+            <End Role="MsActivity" EntitySet="MsActivity" />
+            <End Role="MsParticipants" EntitySet="MsParticipants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MsUsers" EntityType="DatabaseModel.MsUser" />
+          <EntitySet Name="MsParticipants" EntityType="DatabaseModel.MsParticipant" />
+          <EntitySet Name="MsActivities" EntityType="DatabaseModel.MsActivity" />
+          <AssociationSet Name="FK_MsParticipants_MsActivity" Association="DatabaseModel.FK_MsParticipants_MsActivity">
+            <End Role="MsActivity" EntitySet="MsActivities" />
+            <End Role="MsParticipant" EntitySet="MsParticipants" />
+          </AssociationSet>
+          <EntitySet Name="MsArticles" EntityType="DatabaseModel.MsArticle" />
+        </EntityContainer>
+        <EntityType Name="MsUser">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userDOB" Type="DateTime" Precision="0" />
+          <Property Name="userAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userRole" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="verifStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userKTP" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="MsParticipant">
+          <Key>
+            <PropertyRef Name="userID" />
+            <PropertyRef Name="activityID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="activityID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MsActivity" Relationship="DatabaseModel.FK_MsParticipants_MsActivity" FromRole="MsParticipant" ToRole="MsActivity" />
+        </EntityType>
+        <EntityType Name="MsActivity">
+          <Key>
+            <PropertyRef Name="activityID" />
+          </Key>
+          <Property Name="activityID" Type="Int32" Nullable="false" />
+          <Property Name="activityTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="activityDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="activityLocation" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="activityDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="activityCapacity" Type="Int32" Nullable="false" />
+          <Property Name="activityCurrentParticipants" Type="Int32" Nullable="false" />
+          <Property Name="activityTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="activityRequirements" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="activityImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="activityStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="activityCreator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="activityStartRegistration" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="activityEndRegistration" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="MsParticipants" Relationship="DatabaseModel.FK_MsParticipants_MsActivity" FromRole="MsActivity" ToRole="MsParticipant" />
+        </EntityType>
+        <Association Name="FK_MsParticipants_MsActivity">
+          <End Type="DatabaseModel.MsActivity" Role="MsActivity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DatabaseModel.MsParticipant" Role="MsParticipant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MsActivity">
+              <PropertyRef Name="activityID" />
+            </Principal>
+            <Dependent Role="MsParticipant">
+              <PropertyRef Name="activityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MsArticle">
+          <Key>
+            <PropertyRef Name="articleID" />
+          </Key>
+          <Property Name="articleID" Type="Int32" Nullable="false" />
+          <Property Name="articleTitle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="articleAuthor" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="articleDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="articleTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="articleSubTitle" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="articleContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="articleImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+          <EntitySetMapping Name="MsUsers">
+            <EntityTypeMapping TypeName="DatabaseModel.MsUser">
+              <MappingFragment StoreEntitySet="MsUser">
+                <ScalarProperty Name="userKTP" ColumnName="userKTP" />
+                <ScalarProperty Name="verifStatus" ColumnName="verifStatus" />
+                <ScalarProperty Name="userRole" ColumnName="userRole" />
+                <ScalarProperty Name="userAddress" ColumnName="userAddress" />
+                <ScalarProperty Name="userDOB" ColumnName="userDOB" />
+                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MsParticipants">
+            <EntityTypeMapping TypeName="DatabaseModel.MsParticipant">
+              <MappingFragment StoreEntitySet="MsParticipants">
+                <ScalarProperty Name="activityID" ColumnName="activityID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MsActivities">
+            <EntityTypeMapping TypeName="DatabaseModel.MsActivity">
+              <MappingFragment StoreEntitySet="MsActivity">
+                <ScalarProperty Name="activityEndRegistration" ColumnName="activityEndRegistration" />
+                <ScalarProperty Name="activityStartRegistration" ColumnName="activityStartRegistration" />
+                <ScalarProperty Name="activityCreator" ColumnName="activityCreator" />
+                <ScalarProperty Name="activityStatus" ColumnName="activityStatus" />
+                <ScalarProperty Name="activityImage" ColumnName="activityImage" />
+                <ScalarProperty Name="activityRequirements" ColumnName="activityRequirements" />
+                <ScalarProperty Name="activityTime" ColumnName="activityTime" />
+                <ScalarProperty Name="activityCurrentParticipants" ColumnName="activityCurrentParticipants" />
+                <ScalarProperty Name="activityCapacity" ColumnName="activityCapacity" />
+                <ScalarProperty Name="activityDate" ColumnName="activityDate" />
+                <ScalarProperty Name="activityLocation" ColumnName="activityLocation" />
+                <ScalarProperty Name="activityDescription" ColumnName="activityDescription" />
+                <ScalarProperty Name="activityTitle" ColumnName="activityTitle" />
+                <ScalarProperty Name="activityID" ColumnName="activityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MsArticles">
+            <EntityTypeMapping TypeName="DatabaseModel.MsArticle">
+              <MappingFragment StoreEntitySet="MsArticle">
+                <ScalarProperty Name="articleImage" ColumnName="articleImage" />
+                <ScalarProperty Name="articleContent" ColumnName="articleContent" />
+                <ScalarProperty Name="articleSubTitle" ColumnName="articleSubTitle" />
+                <ScalarProperty Name="articleTime" ColumnName="articleTime" />
+                <ScalarProperty Name="articleDate" ColumnName="articleDate" />
+                <ScalarProperty Name="articleAuthor" ColumnName="articleAuthor" />
+                <ScalarProperty Name="articleTitle" ColumnName="articleTitle" />
+                <ScalarProperty Name="articleID" ColumnName="articleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

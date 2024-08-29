@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MsActivity">
+    <Key>
+      <PropertyRef Name="activityID" />
+    </Key>
+    <Property Name="activityID" Type="int" Nullable="false" />
+    <Property Name="activityTitle" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="activityDescription" Type="varchar(max)" Nullable="false" />
+    <Property Name="activityLocation" Type="varchar(max)" Nullable="false" />
+    <Property Name="activityDate" Type="date" Nullable="false" />
+    <Property Name="activityCapacity" Type="int" Nullable="false" />
+    <Property Name="activityCurrentParticipants" Type="int" Nullable="false" />
+    <Property Name="activityTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="activityRequirements" Type="varchar(max)" Nullable="false" />
+    <Property Name="activityImage" Type="varbinary(max)" />
+    <Property Name="activityStatus" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="activityCreator" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="activityStartRegistration" Type="date" Nullable="false" />
+    <Property Name="activityEndRegistration" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MsArticle">
+    <Key>
+      <PropertyRef Name="articleID" />
+    </Key>
+    <Property Name="articleID" Type="int" Nullable="false" />
+    <Property Name="articleTitle" Type="varchar(max)" Nullable="false" />
+    <Property Name="articleAuthor" Type="varchar(max)" Nullable="false" />
+    <Property Name="articleDate" Type="date" Nullable="false" />
+    <Property Name="articleTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="articleSubTitle" Type="varchar(max)" Nullable="false" />
+    <Property Name="articleContent" Type="varchar(max)" Nullable="false" />
+    <Property Name="articleImage" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="MsParticipants">
+    <Key>
+      <PropertyRef Name="userID" />
+      <PropertyRef Name="activityID" />
+    </Key>
+    <Property Name="userID" Type="int" Nullable="false" />
+    <Property Name="activityID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MsUser">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="50" />
+    <Property Name="userEmail" Type="varchar" MaxLength="50" />
+    <Property Name="userPassword" Type="varchar" MaxLength="50" />
+    <Property Name="userDOB" Type="date" />
+    <Property Name="userAddress" Type="varchar" MaxLength="50" />
+    <Property Name="userRole" Type="varchar" MaxLength="15" />
+    <Property Name="verifStatus" Type="varchar" MaxLength="50" />
+    <Property Name="userKTP" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_MsParticipants_MsActivity">
+    <End Role="MsActivity" Type="Self.MsActivity" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MsParticipants" Type="Self.MsParticipants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MsActivity">
+        <PropertyRef Name="activityID" />
+      </Principal>
+      <Dependent Role="MsParticipants">
+        <PropertyRef Name="activityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="MsActivity" EntityType="Self.MsActivity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MsArticle" EntityType="Self.MsArticle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MsParticipants" EntityType="Self.MsParticipants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MsUser" EntityType="Self.MsUser" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MsParticipants_MsActivity" Association="Self.FK_MsParticipants_MsActivity">
+      <End Role="MsActivity" EntitySet="MsActivity" />
+      <End Role="MsParticipants" EntitySet="MsParticipants" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

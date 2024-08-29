@@ -1,0 +1,90 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+}
+
+.backgroundnavbar {
+    background-color: #4064d4;
+    height: 110px;
+    width: 100%;
+    position: relative;
+    margin-top: -95px;
+}
+
+.content .container{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    min-height: 80vh;
+    gap: 20px;
+}
+
+.gridview th {
+    background-color: white;
+    font-weight: bold !important;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.gridview th a{
+    color: black;
+    cursor: pointer;
+}
+
+.gridview th a::after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid black; /* Change color as needed */
+    vertical-align: middle;
+    margin-left: 5px; /* Adjust as needed */
+}
+
+/* Rotate the arrow to point upwards */
+.gridview th.desc a::after {
+    transform: rotate(180deg);
+    border-top: none;
+    border-bottom: 5px solid black; /* Change color as needed */
+    border-top: 5px solid transparent; /* Remove top border */
+}
+
+.gridview td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+.gridview tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.gridview tr:nth-child(odd) {
+    background-color: white;
+}
+
+.action-buttonedit {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #3CBA54;
+    background-color: white;
+    cursor: pointer;
+    color: #3CBA54;
+}
+
+.action-buttonedit:hover {
+    background-color: #3CBA54;
+    color: white;
+}
+
+.btn-option{
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
